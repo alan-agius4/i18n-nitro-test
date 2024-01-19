@@ -9,10 +9,15 @@ const entryPoints = {
 // Render hook.
 export default eventHandler(async (event) => {
   const locale = getRequestURL(event).pathname.split("/").filter(Boolean)[0];
+
   if (!entryPoints[locale]) {
     return
   }
 
+  const document = await useStorage().getItem(
+    `assets/server/${locale}/index.server.html`
+  );
+
   const html = await entryPoints[locale]();
-  return html.render(event.req);
+  return html.render(event.req, document);
 });

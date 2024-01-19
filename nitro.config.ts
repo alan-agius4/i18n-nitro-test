@@ -5,6 +5,12 @@ export default defineNitroConfig({
       dir: 'browser',
     },
   ],
+  serverAssets: [
+    {
+      dir: './server',
+      baseName: 'server',
+    },
+  ],
   rollupConfig: {
     treeshake: {
       moduleSideEffects: true,
