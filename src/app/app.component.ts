@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'i18n-nitro-test';
+  title = $localize`i18n-nitro-test`;
 }
